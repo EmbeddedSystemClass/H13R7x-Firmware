@@ -83,11 +83,18 @@
 #define _DI_TOK_PORT		GPIOA
 #define _DI_TOK_PIN			GPIO_PIN_7
 
+/* Module-specific Macros */
+#define Load_SR()		HAL_GPIO_WritePin(_DI_LD_PORT, _DI_LD_PIN, GPIO_PIN_RESET); HAL_GPIO_WritePin(_DI_LD_PORT, _DI_LD_PIN, GPIO_PIN_SET)
+#define CS_LOW()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_RESET)
+#define CS_HIGH()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_SET)
+
 /* H08R0_Status Type Definition */  
 typedef enum 
 {
   H08R0_OK = 0,
-	H08R0_ERR_UnknownMessage = 1,
+	H08R0_ERR_UnknownMessage,
+	H08R0_TIMEOUT,
+	H08R0_ERR_SPI
 } H08R0_Status;
 
 /* Indicator LED */
@@ -102,6 +109,8 @@ extern UART_HandleTypeDef huart3;
 extern UART_HandleTypeDef huart4;
 extern UART_HandleTypeDef huart5;
 extern UART_HandleTypeDef huart6;
+
+extern uint8_t inputs;
 
 /* Define UART Init prototypes */
 extern void MX_USART1_UART_Init(void);
@@ -125,6 +134,7 @@ extern void MX_USART6_UART_Init(void);
 
 extern void H08R0_Init(void);
 extern H08R0_Status H08R0_MessagingTask(uint16_t code, uint8_t port, uint8_t src, uint8_t dst);
+extern H08R0_Status ReadInputs(void);
 
 
 /* -----------------------------------------------------------------------

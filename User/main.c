@@ -97,6 +97,9 @@ void FrontEndTask(void * argument)
   for(;;)
   {
 
+		ReadInputs();
+		
+		Delay_ms(100);
   }	
 
 }

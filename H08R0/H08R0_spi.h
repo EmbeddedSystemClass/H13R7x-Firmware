@@ -1,11 +1,11 @@
 /**
   ******************************************************************************
-  * File Name          : H08R0_gpio.c
+  * File Name          : SPI.h
   * Description        : This file provides code for the configuration
-  *                      of all used GPIO pins.
+  *                      of the SPI instances.
   ******************************************************************************
   *
-  * COPYRIGHT(c) 2015 STMicroelectronics
+  * COPYRIGHT(c) 2017 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -31,88 +31,42 @@
   *
   ******************************************************************************
   */
-
+	 
 /*
 		MODIFIED by Hexabitz for BitzOS (BOS) V0.0.0 - Copyright (C) 2016 Hexabitz
     All rights reserved
 */
 
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __spi_H
+#define __spi_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+	 
 /* Includes ------------------------------------------------------------------*/
-#include "BOS.h"
+#include "stm32f0xx_hal.h"
 
-/*----------------------------------------------------------------------------*/
-/* Configure GPIO                                                             */
-/*----------------------------------------------------------------------------*/
 
-/** Pinout Configuration
-*/
-void MX_GPIO_Init(void)
-{
-  /* GPIO Ports Clock Enable */
-  __GPIOC_CLK_ENABLE();
-  __GPIOA_CLK_ENABLE();
-  __GPIOD_CLK_ENABLE();
-	__GPIOB_CLK_ENABLE();
-	
-	IND_LED_Init();
+extern SPI_HandleTypeDef hspi2;
+extern void Error_Handler(void);
+void MX_SPI2_Init(void);
+
+
+
+#ifdef __cplusplus
 }
+#endif
+#endif /*__ spi_H */
 
-/* --- Configure indicator LED ---
-*/
-void IND_LED_Init(void)
-{
-	GPIO_InitTypeDef GPIO_InitStruct;
-	
-	GPIO_InitStruct.Pin = _IND_LED_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-	HAL_GPIO_Init(_IND_LED_PORT, &GPIO_InitStruct);
-}
+/**
+  * @}
+  */
 
-/* --- Configure DI_LD output ---
-*/
-void DI_LD_Init(void)
-{
-	GPIO_InitTypeDef GPIO_InitStruct;
-	
-	GPIO_InitStruct.Pin = _DI_LD_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-	HAL_GPIO_Init(_DI_LD_PORT, &GPIO_InitStruct);
-	
-	/* Default state */
-	HAL_GPIO_WritePin(_DI_LD_PORT, _DI_LD_PIN, GPIO_PIN_SET);
-}
-
-/* --- Configure DI_CS output ---
-*/
-void DI_CS_Init(void)
-{
-	GPIO_InitTypeDef GPIO_InitStruct;
-	
-	GPIO_InitStruct.Pin = _DI_CS_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-	HAL_GPIO_Init(_DI_CS_PORT, &GPIO_InitStruct);
-	
-	/* Default state */
-	HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_SET);
-}
-
-/* --- Configure DI_TOK input ---
-*/
-void DI_TOK_Init(void)
-{
-	GPIO_InitTypeDef GPIO_InitStruct;
-	
-	GPIO_InitStruct.Pin = _DI_TOK_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(_DI_TOK_PORT, &GPIO_InitStruct);
-}
-
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

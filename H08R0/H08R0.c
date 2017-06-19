@@ -10,8 +10,9 @@
 		
 			>> USARTs 1,2,3,4,5,6 for module ports.
 			>> SPI 2 for SN65HVS882PWP
-			>> GPIOA 6 output for DI_LD
-			>> GPIOA 7 input for DI_TOK
+			>> GPIOB 12 for SN65HVS882PWP chip-select
+			>> GPIOA 6 output for DI_LD (load shift register)
+			>> GPIOA 7 input for DI_TOK (temperature OK flag)
 			
 */
 	
@@ -27,6 +28,7 @@ UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart6;
 
+uint8_t inputs = 0;
 
 /* Private variables ---------------------------------------------------------*/
 
@@ -79,13 +81,40 @@ void H08R0_Init(void)
   MX_USART6_UART_Init();
 	
 	/* SPI */
-	
+	MX_SPI2_Init();
 	
 	/* DI_LD */
 	DI_LD_Init();
 	
 	/* DI_TOK */
 	DI_TOK_Init();
+	
+}
+
+/* --- Read digital input. 
+*/
+H08R0_Status ReadInputs(void)
+{	
+	HAL_StatusTypeDef result = HAL_OK;
+	
+	/* Load data into shift register */
+	Load_SR();
+	
+	/* Read 8 bits from the shift register */
+	CS_LOW();
+	
+	result = HAL_SPI_Receive(&hspi2, &inputs, 1, 10);
+	while (result != HAL_BUSY) {};
+	
+	CS_HIGH();
+	
+	/* Return status */	
+	if (result == HAL_OK)
+		return H08R0_OK;
+	else if (result == HAL_TIMEOUT)
+		return H08R0_TIMEOUT;
+	else 
+		return H08R0_ERR_SPI;
 	
 }
 
