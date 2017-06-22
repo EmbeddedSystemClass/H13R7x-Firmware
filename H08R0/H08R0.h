@@ -18,6 +18,10 @@
 
 #define	modulePN		_H08R0
 
+/* Port-related definitions */
+#define	NumOfPorts		6
+#define P_PROG 				P5						/* ST factory bootloader UART */
+
 /* Define available ports */
 #define _P1 
 #define _P2 
@@ -33,7 +37,15 @@
 #define _Usart4 1
 #define _Usart5 1
 #define _Usart6	1
-	
+
+/* Port-UART mapping */
+#define P1uart &huart3
+#define P2uart &huart1
+#define P3uart &huart5
+#define P4uart &huart4
+#define P5uart &huart2
+#define P6uart &huart6
+
 /* Port Definitions */
 #define	USART1_TX_PIN		GPIO_PIN_9
 #define	USART1_RX_PIN		GPIO_PIN_10
