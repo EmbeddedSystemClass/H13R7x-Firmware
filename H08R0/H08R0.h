@@ -106,8 +106,9 @@ typedef enum
   H08R0_OK = 0,
 	H08R0_ERR_UnknownMessage,
 	H08R0_TIMEOUT,
-	H08R0_ERR_SPI
-} H08R0_Status;
+	H08R0_ERR_SPI,
+	H08R0_ERROR = 255
+} Module_Status;
 
 /* Indicator LED */
 #define _IND_LED_PORT		GPIOB
@@ -144,9 +145,7 @@ extern void MX_USART6_UART_Init(void);
    ----------------------------------------------------------------------- 
 */
 
-extern void H08R0_Init(void);
-extern H08R0_Status H08R0_MessagingTask(uint16_t code, uint8_t port, uint8_t src, uint8_t dst);
-extern H08R0_Status ReadInputs(void);
+extern Module_Status ReadInputs(void);
 
 
 /* -----------------------------------------------------------------------
