@@ -13,7 +13,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "BOS.h"
-
+#include "H08R0_uart.h"	
+#include "H08R0_gpio.h"	
+#include "H08R0_dma.h"			
+#include "H08R0_spi.h"
+	
 /* Exported definitions -------------------------------------------------------*/
 
 #define	modulePN		_H08R0
