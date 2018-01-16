@@ -2,25 +2,25 @@
     BitzOS (BOS) V0.0.0 - Copyright (C) 2016 Hexabitz
     All rights reserved
 		
-    File Name     : H08R0.c
-    Description   : Header file for module H08R0.
+    File Name     : H13R7.c
+    Description   : Header file for module H13R7.
 										Eight industrial digital inputs (SN65HVS882PWP)
 */
 	
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef H08R0_H
-#define H08R0_H
+#ifndef H13R7_H
+#define H13R7_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "BOS.h"
-#include "H08R0_uart.h"	
-#include "H08R0_gpio.h"	
-#include "H08R0_dma.h"			
-#include "H08R0_spi.h"
+#include "H13R7_uart.h"	
+#include "H13R7_gpio.h"	
+#include "H13R7_dma.h"			
+#include "H13R7_spi.h"
 	
 /* Exported definitions -------------------------------------------------------*/
 
-#define	modulePN		_H08R0
+#define	modulePN		_H13R7
 
 /* Port-related definitions */
 #define	NumOfPorts		6
@@ -104,14 +104,14 @@
 #define CS_LOW()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_RESET)
 #define CS_HIGH()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_SET)
 
-/* H08R0_Status Type Definition */  
+/* H13R7_Status Type Definition */  
 typedef enum 
 {
-  H08R0_OK = 0,
-	H08R0_ERR_UnknownMessage,
-	H08R0_TIMEOUT,
-	H08R0_ERR_SPI,
-	H08R0_ERROR = 255
+  H13R7_OK = 0,
+	H13R7_ERR_UnknownMessage,
+	H13R7_TIMEOUT,
+	H13R7_ERR_SPI,
+	H13R7_ERROR = 255
 } Module_Status;
 
 /* Indicator LED */
@@ -159,6 +159,6 @@ extern Module_Status ReadInputs(void);
 
 
 
-#endif /* H08R0_H */
+#endif /* H13R7_H */
 
 /************************ (C) COPYRIGHT HEXABITZ *****END OF FILE****/

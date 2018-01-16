@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : H08R0_gpio.h
+  * File Name          : H13R7_gpio.h
   * Description        : This file contains all the functions prototypes for 
   *                      the gpio  
   ******************************************************************************
@@ -38,8 +38,8 @@
 */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __H08R0_gpio_H
-#define __H08R0_gpio_H
+#ifndef __H13R7_gpio_H
+#define __H13R7_gpio_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -57,7 +57,7 @@ extern void DI_TOK_Init(void);
 #ifdef __cplusplus
 }
 #endif
-#endif /*__H08R0_gpio_H */
+#endif /*__H13R7_gpio_H */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

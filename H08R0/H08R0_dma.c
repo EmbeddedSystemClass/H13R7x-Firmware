@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : H08R0_DMA.c
+  * File Name          : H13R7_DMA.c
   * Description        : This file provides code for the configuration
   *                      of the DMA instances.
   ******************************************************************************
