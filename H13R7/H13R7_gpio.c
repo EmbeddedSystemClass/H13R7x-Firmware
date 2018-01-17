@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : H08R0_gpio.c
+  * File Name          : H13R7_gpio.c
   * Description        : This file provides code for the configuration
   *                      of all used GPIO pins.
   ******************************************************************************

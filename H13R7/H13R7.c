@@ -2,8 +2,8 @@
     BitzOS (BOS) V0.0.0 - Copyright (C) 2016 Hexabitz
     All rights reserved
 
-    File Name     : H08R0.c
-    Description   : Source code for module H08R0.
+    File Name     : H13R7.c
+    Description   : Source code for module H13R7.
 										Eight industrial digital inputs (SN65HVS882PWP)
 		
 		Required MCU resources : 
@@ -44,7 +44,7 @@ uint8_t inputs = 0;
    ----------------------------------------------------------------------- 
 */
 
-/* --- H08R0 module initialization. 
+/* --- H13R7 module initialization. 
 */
 void Module_Init(void)
 {	
@@ -69,17 +69,17 @@ void Module_Init(void)
 
 /*-----------------------------------------------------------*/
 
-/* --- H08R0 message processing task. 
+/* --- H13R7 message processing task. 
 */
 Module_Status Module_MessagingTask(uint16_t code, uint8_t port, uint8_t src, uint8_t dst)
 {
-	Module_Status result = H08R0_OK;
+	Module_Status result = H13R7_OK;
 	
 	switch (code)
 	{
 
 		default:
-			result = H08R0_ERR_UnknownMessage;
+			result = H13R7_ERR_UnknownMessage;
 			break;
 	}			
 
@@ -141,11 +141,11 @@ Module_Status ReadInputs(void)
 	
 	/* Return status */	
 	if (result == HAL_OK)
-		return H08R0_OK;
+		return H13R7_OK;
 	else if (result == HAL_TIMEOUT)
-		return H08R0_TIMEOUT;
+		return H13R7_TIMEOUT;
 	else 
-		return H08R0_ERR_SPI;
+		return H13R7_ERR_SPI;
 	
 }
 

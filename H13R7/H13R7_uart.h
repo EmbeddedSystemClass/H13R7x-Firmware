@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : H08R0_uart.h
+  * File Name          : H13R7_uart.h
   * Description        : This file provides code for the configuration
   *                      of the USART instances.
   ******************************************************************************
@@ -38,8 +38,8 @@
 */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __H08R0_uart_H
-#define __H08R0_uart_H
+#ifndef __H13R7_uart_H
+#define __H13R7_uart_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -74,7 +74,7 @@ extern HAL_StatusTypeDef writePxITMutex(uint8_t port, char *buffer, uint16_t n, 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__H08R0_uart_H */
+#endif /*__H13R7_uart_H */
 
 /**
   * @}
