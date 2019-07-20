@@ -30,6 +30,11 @@ UART_HandleTypeDef huart6;
 
 uint8_t inputs = 0;
 
+
+/* Module exported parameters ------------------------------------------------*/
+module_param_t modParam[NUM_MODULE_PARAMS] = {{.paramPtr=NULL, .paramFormat=FMT_FLOAT, .paramName=""}};
+
+
 /* Private variables ---------------------------------------------------------*/
 
 

@@ -104,6 +104,9 @@
 #define CS_LOW()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_RESET)
 #define CS_HIGH()		HAL_GPIO_WritePin(_DI_CS_PORT, _DI_CS_PIN, GPIO_PIN_SET)
 
+#define NUM_MODULE_PARAMS		1
+						
+					
 /* H13R7_Status Type Definition */  
 typedef enum 
 {
