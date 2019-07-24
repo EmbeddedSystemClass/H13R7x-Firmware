@@ -13,6 +13,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "BOS.h"
+#include "H13R7_MemoryMap.h"	
 #include "H13R7_uart.h"	
 #include "H13R7_gpio.h"	
 #include "H13R7_dma.h"			
